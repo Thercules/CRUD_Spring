@@ -1,0 +1,1 @@
+alter table usuarios add telefone varchar(20) not null;

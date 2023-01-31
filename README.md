@@ -3,9 +3,6 @@
 
 > Aplicativo desenvolvido em Java versão 17 com a utilização do framework Spring e demais bibliotecas. O objetivo da construção desta aplicação se dá para uso pessoal e apresentacional em demais vagas de programação. 
 
-### Prototipagem
-Confira a prototipagem das telas [aqui](https://www.figma.com/file/8NMdu9qtk0wcyIBy8mwCkk/CCO-VENDAS?node-id=0%3A1)
-
 ### IDE
 
 ### Tecnologias utilizadas
@@ -39,7 +36,6 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
-<!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
 * Você instalou a versão mais recente `<Java (versão mais recente) / JDK 19 ou 17 / IntelliJ 2022.3.2 / MySQL v8.0.21 / Insomnia>`
 * Você tem uma máquina `<Windows / Linux / Mac>`. Todos os sistemas operacionais são compatíveis, aqui será demonstrado a instalação em uma máquina Windows.
 * Caso sua máquina seja Linux ou Mac, Seguem alguns manuais de instalações: 
@@ -48,23 +44,23 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 ## 🚀 Instalando e utilizando a aplicação
 
-*Para instalar o CRUD, siga estas etapas:
+• Para instalar o CRUD, siga estas etapas:
 
-*Certifique-se de ter o Java, o JDK, o MySQL e o IntelliJ mais recentes instalados:
+• Certifique-se de ter o Java, o JDK, o MySQL e o IntelliJ mais recentes instalados:
 
-*Importe o projeto em seu IntelliJ e automaticamente ele fará o download das dependências do Maven e demais Libs
+• Importe o projeto em seu IntelliJ e automaticamente ele fará o download das dependências do Maven e demais Libs
 
-*Após isso crie um banco de dados em seu MySQL com o nome de "banco_de_usuarios" e defina-o como principal schema
+• Após isso crie um banco de dados em seu MySQL com o nome de "banco_de_usuarios" e defina-o como principal schema
 
-*Entre no projeto recem importado e siga este caminho: <api/src/main/resources/application.properties> e neste arquivo insira as configurações de login e porta de seu MySQL
+• Entre no projeto recem importado e siga este caminho: <api/src/main/resources/application.properties> e neste arquivo insira as configurações de login e porta de seu MySQL
 
-*Após tal ato, garanta que a porta 8080 do seu localhost estará disponível (Atento a banco de dados abertos que podem consumir essa porta como banco PostgreSQL)
+• Após tal ato, garanta que a porta 8080 do seu localhost estará disponível (Atento a banco de dados abertos que podem consumir essa porta como banco PostgreSQL)
 
-*Após todas as demais configurações e downloads execute o projeto em sua máquina e abra o localhost em seu navegador. Ele deve apresentar a White Label error do Spring, sinalizando que o projeto está no ar
+• Após todas as demais configurações e downloads execute o projeto em sua máquina e abra o localhost em seu navegador. Ele deve apresentar a White Label error do Spring, sinalizando que o projeto está no ar
 
-*Após isso a emissão dos métodos GET, POST, PUT e DELETE devem ser todos feitos através de ferramenta. Você pode utilizar o POSTMAN ou o INSOMNIA porém no projeto fora utilizada a segunda opção.
+• Após isso a emissão dos métodos GET, POST, PUT e DELETE devem ser todos feitos através de ferramenta. Você pode utilizar o POSTMAN ou o INSOMNIA porém no projeto fora utilizada a segunda opção.
 
-*ATENTE-SE a colocar o localhost correto na hora de emitir as solicitações, sejam elas post, get, put ou delete. Um exemplo de uso do meu próprio projeto: 
+• ATENTE-SE a colocar o localhost correto na hora de emitir as solicitações, sejam elas post, get, put ou delete. Um exemplo de uso do meu próprio projeto: 
 ```
 <http://localhost:8080/usuario>
 ```
@@ -141,6 +137,9 @@ create table usuarios(
 
 );
 ```
+
+### Prints de funcionamento
+https://drive.google.com/drive/folders/1W3yDQRAZhRyRKmKJvpTUfOCiNL2DFI_V?usp=sharing
 
 ## 📫 Deseja contribuir para o CRUD?
 Para contribuir com <nome_do_projeto>, siga estas etapas:

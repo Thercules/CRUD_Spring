@@ -22,6 +22,7 @@ Confira a prototipagem das telas [aqui](https://www.figma.com/file/8NMdu9qtk0wcy
 - Validation (Para validação dos métodos)
 - Flyway Migration (Para atualizar, visualizar o banco de dados pela própria IDE)
 - Spring JPA (Persistência e criação da API)
+- Lombok (Produtividade e redução de código)
 
 ### Ajustes e melhorias
 
@@ -47,31 +48,34 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 ## 🚀 Instalando e utilizando a aplicação
 
-Para instalar o CRUD, siga estas etapas:
+*Para instalar o CRUD, siga estas etapas:
 
-Certifique-se de ter o Java, o JDK, o MySQL e o IntelliJ mais recentes instalados:
+*Certifique-se de ter o Java, o JDK, o MySQL e o IntelliJ mais recentes instalados:
+
+*Importe o projeto em seu IntelliJ e automaticamente ele fará o download das dependências do Maven e demais Libs
+
+*Após isso crie um banco de dados em seu MySQL com o nome de "banco_de_usuarios" e defina-o como principal schema
+
+*Entre no projeto recem importado e siga este caminho: <api/src/main/resources/application.properties> e neste arquivo insira as configurações de login e porta de seu MySQL
+
+*Após tal ato, garanta que a porta 8080 do seu localhost estará disponível (Atento a banco de dados abertos que podem consumir essa porta como banco PostgreSQL)
+
+*Após todas as demais configurações e downloads execute o projeto em sua máquina e abra o localhost em seu navegador. Ele deve apresentar a White Label error do Spring, sinalizando que o projeto está no ar
+
+*Após isso a emissão dos métodos GET, POST, PUT e DELETE devem ser todos feitos através de ferramenta. Você pode utilizar o POSTMAN ou o INSOMNIA porém no projeto fora utilizada a segunda opção.
+
+*ATENTE-SE a colocar o localhost correto na hora de emitir as solicitações, sejam elas post, get, put ou delete. Um exemplo de uso do meu próprio projeto: 
 ```
-Importe o projeto em seu IntelliJ e automaticamente ele fará o download das dependências do Maven e demais Libs
+<http://localhost:8080/usuario>
 ```
-Após isso crie um banco de dados em seu MySQL com o nome de "banco_de_usuarios" e defina-o como principal schema
+
+*Também atente-se que determinados campos possuem LIMITES de caracteres, campos como cpf, cep e telefone, se preenchidos errados podem retornar erros na emissão ao banco.
+
+<h2> <b>Seguem abaixo exemplos de emissões de cada tipo.</b> </h2>
+
+<b> Body do SCRIPT em .JSON. Método POST - emissão de novos usuários (será usada no cadastro) </b>
 ```
-Entre no projeto recem importado e siga este caminho: <api/src/main/resources/application.properties> e neste arquivo insira as configurações de login e porta de seu MySQL
-```
-Após tal ato, garanta que a porta 8080 do seu localhost estará disponível (Atento a banco de dados abertos que podem consumir essa porta como banco PostgreSQL)
-```
-Após todas as demais configurações e downloads execute o projeto em sua máquina e abra o localhost em seu navegador. Ele deve apresentar a White Label error do Spring, sinalizando que o projeto está no ar
-```
-Após isso a emissão dos métodos GET, POST, PUT e DELETE devem ser todos feitos através de ferramenta. Você pode utilizar o POSTMAN ou o INSOMNIA porém no projeto fora utilizada a segunda opção.
-```
-ATENTE-SE a colocar o localhost correto na hora de emitir as solicitações, sejam elas post, get, put ou delete. Um exemplo de uso do meu próprio projeto: <http://localhost:8080/usuario>
-```
-Tambpém atente-se que determinados campos possuem LIMITES de caracteres, campos como cpf, cep e telefone, se preenchidos errados podem retornar erros na emissão ao banco.
-```
-Seguem abaixo exemplos de emissões de cada tipo.
-```
-Body do SCRIPT em .JSON. Método POST - emissão de novos usuários (será usada no cadastro)
-```
-<{
+{
 "nome": "Matheus Valenca",
 "email": "matheusvalenca@yahoo.com",
 "cpf": "14255523232",
@@ -86,9 +90,9 @@ Body do SCRIPT em .JSON. Método POST - emissão de novos usuários (será usada
     "numero": "762",
     "complemento": "ap"
     }
-}>
+}
 ```
-Método GET - Listar usuários (Implementado a questão paginação e ordenação, seguem exemplos abaixo)
+<b> Método GET </b> - Listar usuários (Implementado a questão paginação e ordenação, seguem exemplos abaixo)
 ```
 Chamada da lista de usuários sem paginação e ordenação 
 <http://localhost:8080/usuario> 
@@ -99,14 +103,43 @@ Chamada da lista de usuários com paginação e ordenação
 Chamada da lista de usuários por ordem alfabética
 <http://localhost:8080/usuario?sort=nome> 
 ```
-Método PUT - Atualizar usuários (Através da declaração do ID você pode atualizar os campos de cadastro do usuário que for correspondente)
+<b> Método PUT </b> Atualizar usuários (Através da declaração do ID você pode atualizar os campos de cadastro do usuário que for correspondente)
 ```
-<
 {
 	"id" : 6,
 	"nome" : "Matheus Valenca Filho de Rosa"
-}
-> 
+} 
+```
+
+<h2> Comandos utilizados no banco de dados utilizando FlyWay </h2>
+- Esses comandos se encontram dentro do projeto seguinte o seguinte caminho:
+```
+<api/src/main/resources/db.migrations/V1__criarusuario.sql>
+```
+```
+<api/src/main/resources/db.migrations/V2__adicionartelefone.sql>
+```
+- Mas, caso queira uma execução mais funcional antes de executar o código "V1__criarusuario.sql" execute este abaixo:
+```
+create table usuarios(
+
+                         id bigint not null auto_increment,
+                         nome varchar(100) not null,
+                         email varchar(100) not null unique,
+			 telefone varchar (20) not null,
+                         cpf varchar(12) not null unique,
+                         sexo varchar(20) not null,
+                         logradouro varchar(100) not null,
+                         bairro varchar(100) not null,
+                         cep varchar(9) not null,
+                         complemento varchar(100),
+                         numero varchar(20),
+                         uf char(2) not null,
+                         cidade varchar(100) not null,
+
+                         primary key(id)
+
+);
 ```
 
 ## 📫 Deseja contribuir para o CRUD?

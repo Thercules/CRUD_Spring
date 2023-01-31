@@ -108,14 +108,15 @@ Chamada da lista de usuários por ordem alfabética
 ```
 
 <h2> Comandos utilizados no banco de dados utilizando FlyWay </h2>
-- Esses comandos se encontram dentro do projeto seguinte o seguinte caminho:
+- Esses comandos se encontram dentro do projeto seguindo o seguinte caminho:
+
 ```
 <api/src/main/resources/db.migrations/V1__criarusuario.sql>
-```
-```
 <api/src/main/resources/db.migrations/V2__adicionartelefone.sql>
 ```
-- Mas, caso queira uma execução mais funcional antes de executar o código "V1__criarusuario.sql" execute este abaixo:
+ 
+Mas, caso queira uma execução mais funcional antes de executar o código "V1__criarusuario.sql" execute este abaixo:
+
 ```
 create table usuarios(
 
@@ -136,6 +137,7 @@ create table usuarios(
                          primary key(id)
 
 );
+
 ```
 
 ### Prints de funcionamento
